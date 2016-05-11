@@ -1,2 +1,4 @@
-# ampecc-doc
-Scientific output of Amphora Production model
+# Culture Conference 2016
+Poster source for the Culture Conference 2016:
+http://culture-conference.com/
+
