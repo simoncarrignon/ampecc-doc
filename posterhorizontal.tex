@@ -3,7 +3,7 @@
 
 
 
-\usepackage[scale=.8]{beamerposter} % Use the beamerposter package for laying out the poster
+\usepackage[scale=.8,papersize=]{beamerposter} % Use the beamerposter package for laying out the poster
 
 \usetheme{confposter} % Use the confposter theme supplied with this template
 \usepackage{multicol}
@@ -156,17 +156,35 @@ Once defined the components, we used Discriminant Analysis to find a combination
 
  
 \begin{figure}
-\includegraphics[width=0.6\linewidth]{images/fig3.png}
-\caption{Matrix of confusion. Accuracy: 0.5573. P-Value: 0.0006991.}
+    \begin{tikzpicture}[thick,scale=2]
+	\coordinate (WS0) at (0,0);
+	\coordinate (WS1) at (1,0);
+	\coordinate (WS2) at (2,0);
+	\coordinate (WS3) at (3,0);
+	\coordinate (WS4) at (4,0);
+	\coordinate (WS5) at (5,0);
+
+	\draw[thick,-] (0,0) -- (5,0) node[anchor=north west] {};   
+	\foreach \x in {0,1,2,3,4,5}
+	\draw (\x cm,2pt) -- (\x cm,-2pt) node[anchor=north] {$WS_\x$};
+
+
+		\draw [black,shorten <= 0.25cm, shorten >= 0.25cm, <->] (WS1) to[out=80,in=100,distance=1cm] node[above,font=\scriptsize]{knowledge transmission} (WS4); 
+
+
+	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=.75cm	]  node[font=\scriptsize,pos=.60	,above]{$T_{0 \rightarrow 1}$} (WS1);
+	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1cm	]  node[font=\scriptsize,pos=.75	,above]{$T_{0 \rightarrow 2}$}(WS2);
+	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.25cm	]  node[font=\scriptsize,pos=.82		,above]{$T_{0 \rightarrow 3}$}(WS3);
+	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.5cm	]  node[font=\scriptsize,pos=.85	,above]{$T_{0 \rightarrow 4}$}(WS4);
+	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.75cm	]  node[font=\scriptsize,pos=.875	,above]{$T_{0 \rightarrow 5}$}(WS5);
+
+    \end{tikzpicture}
 \end{figure}
 
 \justify
 As shown in the \textbf{figure 3} of confusion, all correct guesses were located in the diagonal of the table.\\
 A peer to peer comparison was developed among different workshops. We calculated the geographical distance between each site and the distance among pottery measures, calculated using the previous results. The \textbf{figure 4}  shows that the pottery distance is correlated with the spatial distance of workshops.  
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{images/fig2.png}
-\caption{Distance metrics calculated among different workshops.}
 \end{figure}
 
  
@@ -211,18 +229,20 @@ Differences among pottery workshops were identified using PCA and Discriminant A
 \begin{block}{References}
 \small
 
-\bibitem[1]{mesoudi}\textsc{Mesoudi, A. (2015)}
-\textit{Cultural Evolution: A review of Theory, Finding and Controversies}, Evolutionary biology.
+\begin{thebibliography}{50}
+	\bibitem[1]{mesoudi}\textsc{Mesoudi, A. (2015)}
+	\textit{Cultural Evolution: A review of Theory, Finding and Controversies}, Evolutionary biology.
 
-\bibitem[2]{agui}\textsc{Aguilera, A. (1998)}
-\textit{An\'alisis multivariable: una nueva v\'ia para la caracterizaci\'on cer\'amica}, Pyranae, 29.
+	\bibitem[2]{agui}\textsc{Aguilera, A. (1998)}
+	\textit{An\'alisis multivariable: una nueva v\'ia para la caracterizaci\'on cer\'amica}, Pyranae, 29.
 
-\bibitem[3]{schillinger}\textsc{Schillinger, K. et al. (2006)}
-\textit{Differences in Manufacturing Traditions and Assemblage-Level Patterns: the Origins of Cultural Differences in Archaeological Data}, Journal of Archaeological Method Theory.
+	\bibitem[3]{schillinger}\textsc{Schillinger, K. et al. (2006)}
+	\textit{Differences in Manufacturing Traditions and Assemblage-Level Patterns: the Origins of Cultural Differences in Archaeological Data}, Journal of Archaeological Method Theory.
 
-\bibitem[4]{li}\textsc{Li, A. (2014)}
-\textit{Crossbows and imperial craft organisation: the bronze triggers of China's Terracotta Army}, Antiquity, 88.339.
+	\bibitem[4]{li}\textsc{Li, A. (2014)}
+	\textit{Crossbows and imperial craft organisation: the bronze triggers of China's Terracotta Army}, Antiquity, 88.339.
 
+\end{thebibliography}
 
 \end{block}
 
