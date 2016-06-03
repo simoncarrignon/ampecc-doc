@@ -80,12 +80,13 @@ Specifically we want to identify the origin of these changes and if these change
 \begin{figure}
     \includegraphics[width=0.6\linewidth]{images/fig1.png}
 \caption{Distribution map of the four amphorae workshops. The names  are Las Delicias (\'Ecija, Seville), Bel\'en and Malpica (Palma del R\'io, C\'ordoba) and Parlamento (Seville)}
+
 \end{figure}
 
 
 \begin{block}{Methods}
 
-{\textbf{Measurements}} \\
+{\textbf{Measurements}} 
 
 To explore the dynamic of changes we analysed a set of measures among different kinds of amphorae shapes from different workshops. We analysed 413 samples of amphorae from 4 different workshops. These workshops were selected from different spaces of \emph{Baetica} area in order to know if there were differences depending on the space. A database was created using a selection of 80 to 90 samples from each pottery workshops. In each sample of amphora we measured eight measurements among different part of the rim being focused on the rim of the amphora. 
 
@@ -138,23 +139,6 @@ Our results suggested that first and second principal component were more releva
 
 \justify
 Several multivariate methods were used such as Principal Component Analysis and Discriminant Analysis to classify. These methods allowed us to know the differences on the pattern production among workshops.In our case, the first two principal components were taken to see the significal differences among workshops depending on the space. The \textbf{figure 2} shows the workshops with a minor space such Bel\'en and Malpica share more pottery traits than the rest: Parlamento and Las Delicias.
-
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{images/fig2.png}
-\caption{Plot with the results of the first two principal components given by the PCA}
-\end{figure}
-
-Once defined the components, we used Discriminant Analysis to find a combination among them to define the groups as well as possible. These results were translated to a confusion matrix which basically means what results were predicted as true or false on the discriminant analysis. 
-
-\end{column}
-
-\begin{column}{0.48\textwidth}
-
-\justify
-
- Thus the system had troubles to distinguishing between Bel\'en and Malpica which had a higher number of confusion or number instead of Parlamento with a minor confusion than the rest. 
-
- 
 \begin{figure}
     \begin{tikzpicture}[thick,scale=2]
 	\coordinate (WS0) at (0,0);
@@ -180,6 +164,125 @@ Once defined the components, we used Discriminant Analysis to find a combination
 
     \end{tikzpicture}
 \end{figure}
+
+
+Once defined the components, we used Discriminant Analysis to find a combination among them to define the groups as well as possible. These results were translated to a confusion matrix which basically means what results were predicted as true or false on the discriminant analysis. 
+
+
+\begin{figure}
+    \begin{tabular}{m{5cm}m{5cm}}
+	{\tiny No Horizontal Transmission} & {\centering\tiny Horizontal Transmission }\\
+
+	\resizebox{5cm}{!}{
+	    \begin{tikzpicture}[thick,scale=2]
+		\coordinate (WS0) at (0,0);
+		\coordinate (WS1) at (1,0);
+		\coordinate (WS2) at (2,0);
+		\coordinate (WS3) at (3,0);
+		\coordinate (WS4) at (4,0);
+		\coordinate (WS5) at (5,0);
+		\draw[thick,-] (0,0) -- (5,0) node[anchor=north west] {};   
+		\foreach \x in {0,1,2,3,4,5}
+		\draw (\x cm,2pt) -- (\x cm,-2pt) node[anchor=north] {$WS_\x$};
+
+	    \end{tikzpicture}
+	}
+	&
+
+	\resizebox{5cm}{!}{
+	    \begin{tikzpicture}[thick,scale=2]
+		\coordinate (WS0) at (0,0);
+		\coordinate (WS1) at (1,0);
+		\coordinate (WS2) at (2,0);
+		\coordinate (WS3) at (3,0);
+		\coordinate (WS4) at (4,0);
+		\coordinate (WS5) at (5,0);
+		\draw[thick,-] (0,0) -- (5,0) node[anchor=north west] {};   
+		\foreach \x in {0,1,2,3,4,5}
+		\draw (\x cm,2pt) -- (\x cm,-2pt) node[anchor=north] {$WS_\x$};
+
+		\draw [black,shorten <= 0.25cm, shorten >= 0.25cm, <->] (WS1) to[out=80,in=100,distance=1cm] (WS4); 
+		\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=.75cm	]  node[font=\scriptsize,pos=.60	,above]{$T_{0 \rightarrow 1}$}(WS1);
+		\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1cm	]  node[font=\scriptsize,pos=.75	,above]{$T_{0 \rightarrow 2}$}(WS2);
+		\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.25cm	]  node[font=\scriptsize,pos=.82	,above]{$T_{0 \rightarrow 3}$}(WS3);
+		\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.5cm	]  node[font=\scriptsize,pos=.85	,above]{$T_{0 \rightarrow 4}$}(WS4);
+		\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.75cm	]  node[font=\scriptsize,pos=.875	,above]{$T_{0 \rightarrow 5}$}(WS5);
+	    \end{tikzpicture}
+	}
+	\\
+	\resizebox{5cm}{!}{
+	    \begin{tikzpicture}[thick,scale=.5]
+		\coordinate (WS0) at (0,0);
+		\coordinate (WS1) at (1,0);
+		\coordinate (WS2) at (4,0);
+		\coordinate (WS3) at (9,0);
+		\coordinate (WS4) at (16,0);
+		\coordinate (WS5) at (25,0);
+		\draw[thick,-] (0,0) -- (25,0) node[anchor=north west] {};   
+		\foreach \x in {0,1,4,9,16,25}
+		\draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {};
+		\draw (WS0) node[anchor=north]{WS0};
+		\draw (WS1)node[anchor=north]{WS1};
+		\draw (WS2)node[anchor=north]{WS2};
+		\draw (WS3)node[anchor=north]{WS3};
+		\draw (WS4)node[anchor=north]{WS4};
+		\draw (WS5)node[anchor=north]{WS5};
+	    \end{tikzpicture}
+	}	&
+	\resizebox{5cm}{!}{
+	    \begin{tikzpicture}[thick,scale=.5]
+		\coordinate (WS0) at (0,0);
+		\coordinate (WS1) at (1,0);
+		\coordinate (WS2) at (4,0);
+		\coordinate (WS3) at (9,0);
+		\coordinate (WS4) at (16,0);
+		\coordinate (WS5) at (25,0);
+		\draw[thick,-] (0,0) -- (25,0) node[anchor=north west] {};   
+		\foreach \x in {0,1,4,9,16,25}
+		\draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {};
+		\draw (WS0) node[anchor=north]{WS0};
+		\draw (WS1)node[anchor=north]{WS1};
+		\draw (WS2)node[anchor=north]{WS2};
+		\draw (WS3)node[anchor=north]{WS3};
+		\draw (WS4)node[anchor=north]{WS4};
+		\draw (WS5)node[anchor=north]{WS5};
+
+		\draw [black,shorten <= 0.25cm, shorten >= 0.25cm, <->] (WS1) to[out=80,in=100,distance=2cm] (WS4); 
+		\draw [black,shorten <= .35cm, shorten >= .35cm, <->] (WS0) to[out=-80,in=-100,distance=1.5cm	]  (WS1);
+		\draw [black,shorten <= .35cm, shorten >= .35cm, <->] (WS0) to[out=-80,in=-100,distance=2cm	]  (WS2);
+		\draw [black,shorten <= .35cm, shorten >= .35cm, <->] (WS0) to[out=-80,in=-100,distance=2.5cm	]  (WS3);
+		\draw [black,shorten <= .35cm, shorten >= .35cm, <->] (WS0) to[out=-80,in=-100,distance=3cm	]  (WS4);
+		\draw [black,shorten <= .35cm, shorten >= .35cm, <->] (WS0) to[out=-80,in=-100,distance=3.25cm	]  (WS5);
+	    \end{tikzpicture}
+	}	\\
+
+    \end{tabular}
+\end{figure}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+
+\justify
+ Thus the system had troubles to distinguishing between Bel\'en and Malpica which had a higher number of confusion or number instead of Parlamento with a minor confusion than the rest. 
+
+    \begin{figure}
+
+	\begin{tabular}{m{8cm}m{8cm}}
+
+	    {\tiny \hspace{.8cm}No Horizontal Transmission} & {\centering\tiny Horizontal Transmission }\\
+	    \includegraphics[height=8cm]{images/lineNC.png}
+	    &
+	    \includegraphics[height=8cm]{images/lineC.png}
+
+	    \\
+	    \includegraphics[height=8cm]{images/cubeNC.png}
+	    &
+	    \includegraphics[height=8cm]{images/cubeC.png}
+	    \\
+
+	\end{tabular}
+    \end{figure}
+ 
 
 \justify
 As shown in the \textbf{figure 3} of confusion, all correct guesses were located in the diagonal of the table.\\
