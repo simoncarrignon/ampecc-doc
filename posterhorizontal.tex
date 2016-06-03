@@ -11,6 +11,9 @@
 \setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
 \setbeamercolor{block alerted title}{fg=white,bg=dblue!70} % Colors of the highlighted block titles
 \setbeamercolor{block alerted body}{fg=black,bg=dblue!10} % Colors of the body of highlighted blocks
+\usepackage{tikz} 
+\usepackage{array}
+\usepackage{standalone}
 % Many more colors are available for use in beamerthemeconfposter.sty
 
 %-----------------------------------------------------------
@@ -79,7 +82,7 @@ Specifically we want to identify the origin of these changes and if these change
 
 \begin{figure}
     \includegraphics[width=0.6\linewidth]{images/fig1.png}
-\caption{Distribution map of the four amphorae workshops. The names  are Las Delicias (\'Ecija, Seville), Bel\'en and Malpica (Palma del R\'io, C\'ordoba) and Parlamento (Seville)}
+    \caption{Distribution map of the four amphorae workshops. The names are Las Delicias (\'Ecija, Seville), Bel\'en and Malpica (Palma del R\'io, C\'ordoba) and Parlamento (Seville)}
 
 \end{figure}
 
@@ -109,16 +112,14 @@ To explore the dynamic of changes we analysed a set of measures among different 
 \begin{column}{0.48\textwidth}
 \justify
 In each sample of amphora we measured eight measurements among different part of the rim being focused on the rim of the amphora.
-\\
-{\textbf{Multivariate method}} \\
-\\
+{\textbf{Multivariate method}} 
 \justify
 Multivariable methods were used to explore these metrical observations \cite{li}
 \end{column}
 
 \begin{column}{0.48\textwidth}
 \justify
-with the eight measurements as variables.\\ 
+with the eight measurements as variables. \\
 Principal Component Analysis allowed us to simplify the dataset to see which variable were more relevant. 
 Our results suggested that first and second principal component were more relevant than the rest. 
 \end{column}
@@ -140,29 +141,7 @@ Our results suggested that first and second principal component were more releva
 \justify
 Several multivariate methods were used such as Principal Component Analysis and Discriminant Analysis to classify. These methods allowed us to know the differences on the pattern production among workshops.In our case, the first two principal components were taken to see the significal differences among workshops depending on the space. The \textbf{figure 2} shows the workshops with a minor space such Bel\'en and Malpica share more pottery traits than the rest: Parlamento and Las Delicias.
 \begin{figure}
-    \begin{tikzpicture}[thick,scale=2]
-	\coordinate (WS0) at (0,0);
-	\coordinate (WS1) at (1,0);
-	\coordinate (WS2) at (2,0);
-	\coordinate (WS3) at (3,0);
-	\coordinate (WS4) at (4,0);
-	\coordinate (WS5) at (5,0);
-
-	\draw[thick,-] (0,0) -- (5,0) node[anchor=north west] {};   
-	\foreach \x in {0,1,2,3,4,5}
-	\draw (\x cm,2pt) -- (\x cm,-2pt) node[anchor=north] {$WS_\x$};
-
-
-		\draw [black,shorten <= 0.25cm, shorten >= 0.25cm, <->] (WS1) to[out=80,in=100,distance=1cm] node[above,font=\scriptsize]{knowledge transmission} (WS4); 
-
-
-	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=.75cm	]  node[font=\scriptsize,pos=.60	,above]{$T_{0 \rightarrow 1}$} (WS1);
-	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1cm	]  node[font=\scriptsize,pos=.75	,above]{$T_{0 \rightarrow 2}$}(WS2);
-	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.25cm	]  node[font=\scriptsize,pos=.82		,above]{$T_{0 \rightarrow 3}$}(WS3);
-	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.5cm	]  node[font=\scriptsize,pos=.85	,above]{$T_{0 \rightarrow 4}$}(WS4);
-	\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.75cm	]  node[font=\scriptsize,pos=.875	,above]{$T_{0 \rightarrow 5}$}(WS5);
-
-    \end{tikzpicture}
+    \input{images/schemaTL.tikz}
 \end{figure}
 
 
@@ -170,91 +149,23 @@ Once defined the components, we used Discriminant Analysis to find a combination
 
 
 \begin{figure}
-    \begin{tabular}{m{5cm}m{5cm}}
+    \begin{tabular}{m{8cm}m{8cm}}
 	{\tiny No Horizontal Transmission} & {\centering\tiny Horizontal Transmission }\\
 
-	\resizebox{5cm}{!}{
-	    \begin{tikzpicture}[thick,scale=2]
-		\coordinate (WS0) at (0,0);
-		\coordinate (WS1) at (1,0);
-		\coordinate (WS2) at (2,0);
-		\coordinate (WS3) at (3,0);
-		\coordinate (WS4) at (4,0);
-		\coordinate (WS5) at (5,0);
-		\draw[thick,-] (0,0) -- (5,0) node[anchor=north west] {};   
-		\foreach \x in {0,1,2,3,4,5}
-		\draw (\x cm,2pt) -- (\x cm,-2pt) node[anchor=north] {$WS_\x$};
-
-	    \end{tikzpicture}
+	\resizebox{8cm}{!}{
+	    \input{images/schemaNTL.tikz}
 	}
 	&
 
-	\resizebox{5cm}{!}{
-	    \begin{tikzpicture}[thick,scale=2]
-		\coordinate (WS0) at (0,0);
-		\coordinate (WS1) at (1,0);
-		\coordinate (WS2) at (2,0);
-		\coordinate (WS3) at (3,0);
-		\coordinate (WS4) at (4,0);
-		\coordinate (WS5) at (5,0);
-		\draw[thick,-] (0,0) -- (5,0) node[anchor=north west] {};   
-		\foreach \x in {0,1,2,3,4,5}
-		\draw (\x cm,2pt) -- (\x cm,-2pt) node[anchor=north] {$WS_\x$};
-
-		\draw [black,shorten <= 0.25cm, shorten >= 0.25cm, <->] (WS1) to[out=80,in=100,distance=1cm] (WS4); 
-		\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=.75cm	]  node[font=\scriptsize,pos=.60	,above]{$T_{0 \rightarrow 1}$}(WS1);
-		\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1cm	]  node[font=\scriptsize,pos=.75	,above]{$T_{0 \rightarrow 2}$}(WS2);
-		\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.25cm	]  node[font=\scriptsize,pos=.82	,above]{$T_{0 \rightarrow 3}$}(WS3);
-		\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.5cm	]  node[font=\scriptsize,pos=.85	,above]{$T_{0 \rightarrow 4}$}(WS4);
-		\draw [black,shorten <= 0.7cm, shorten >= 0.7cm, <->] (WS0) to[out=-80,in=-100,distance=1.75cm	]  node[font=\scriptsize,pos=.875	,above]{$T_{0 \rightarrow 5}$}(WS5);
-	    \end{tikzpicture}
-	}
-	\\
-	\resizebox{5cm}{!}{
-	    \begin{tikzpicture}[thick,scale=.5]
-		\coordinate (WS0) at (0,0);
-		\coordinate (WS1) at (1,0);
-		\coordinate (WS2) at (4,0);
-		\coordinate (WS3) at (9,0);
-		\coordinate (WS4) at (16,0);
-		\coordinate (WS5) at (25,0);
-		\draw[thick,-] (0,0) -- (25,0) node[anchor=north west] {};   
-		\foreach \x in {0,1,4,9,16,25}
-		\draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {};
-		\draw (WS0) node[anchor=north]{WS0};
-		\draw (WS1)node[anchor=north]{WS1};
-		\draw (WS2)node[anchor=north]{WS2};
-		\draw (WS3)node[anchor=north]{WS3};
-		\draw (WS4)node[anchor=north]{WS4};
-		\draw (WS5)node[anchor=north]{WS5};
-	    \end{tikzpicture}
+	\resizebox{8cm}{!}{
+	    \input{images/schemaTL.tikz}
+	}\\
+	\resizebox{8cm}{!}{
+	    \input{images/schemaNTC.tikz}
 	}	&
-	\resizebox{5cm}{!}{
-	    \begin{tikzpicture}[thick,scale=.5]
-		\coordinate (WS0) at (0,0);
-		\coordinate (WS1) at (1,0);
-		\coordinate (WS2) at (4,0);
-		\coordinate (WS3) at (9,0);
-		\coordinate (WS4) at (16,0);
-		\coordinate (WS5) at (25,0);
-		\draw[thick,-] (0,0) -- (25,0) node[anchor=north west] {};   
-		\foreach \x in {0,1,4,9,16,25}
-		\draw (\x cm,4pt) -- (\x cm,-4pt) node[anchor=north] {};
-		\draw (WS0) node[anchor=north]{WS0};
-		\draw (WS1)node[anchor=north]{WS1};
-		\draw (WS2)node[anchor=north]{WS2};
-		\draw (WS3)node[anchor=north]{WS3};
-		\draw (WS4)node[anchor=north]{WS4};
-		\draw (WS5)node[anchor=north]{WS5};
-
-		\draw [black,shorten <= 0.25cm, shorten >= 0.25cm, <->] (WS1) to[out=80,in=100,distance=2cm] (WS4); 
-		\draw [black,shorten <= .35cm, shorten >= .35cm, <->] (WS0) to[out=-80,in=-100,distance=1.5cm	]  (WS1);
-		\draw [black,shorten <= .35cm, shorten >= .35cm, <->] (WS0) to[out=-80,in=-100,distance=2cm	]  (WS2);
-		\draw [black,shorten <= .35cm, shorten >= .35cm, <->] (WS0) to[out=-80,in=-100,distance=2.5cm	]  (WS3);
-		\draw [black,shorten <= .35cm, shorten >= .35cm, <->] (WS0) to[out=-80,in=-100,distance=3cm	]  (WS4);
-		\draw [black,shorten <= .35cm, shorten >= .35cm, <->] (WS0) to[out=-80,in=-100,distance=3.25cm	]  (WS5);
-	    \end{tikzpicture}
-	}	\\
+	\resizebox{8cm}{!}{
+	    \input{images/schemaTC.tikz}
+	}	
 
     \end{tabular}
 \end{figure}
@@ -272,13 +183,13 @@ Once defined the components, we used Discriminant Analysis to find a combination
 	    {\tiny \hspace{.8cm}No Horizontal Transmission} & {\centering\tiny Horizontal Transmission }\\
 	    \includegraphics[height=8cm]{images/lineNC.png}
 	    &
-	    \includegraphics[height=8cm]{images/lineC.png}
+	    \includegraphics[height=8cm]{images/lineC.png}\\
 
-	    \\
+	    
 	    \includegraphics[height=8cm]{images/cubeNC.png}
 	    &
-	    \includegraphics[height=8cm]{images/cubeC.png}
-	    \\
+	    \includegraphics[height=8cm]{images/cubeC.png}\\
+	    
 
 	\end{tabular}
     \end{figure}

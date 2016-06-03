@@ -1,0 +1,65 @@
+\documentclass[a4paper]{article}
+\usepackage{tikz} 
+\usepackage{array}
+\usepackage{float}
+\usepackage{standalone}
+
+
+\title{}
+\author{}
+\date{}
+
+
+\begin{document}
+
+\section{Introduction}
+Cultural evolution theories provide a set of methods that can be used to account these dynamic of changes, focused on the production of olive oil amphorae during the Roman Empire. 
+To achieve this goal, multivariate methods were used to evaluate the differences on the pattern production among pottery workshops. \\
+Specifically we want to identify the origin of these changes and if these changes were produced by cultural reasons depending on the spatial distance and other cultural constraints. As hypothesis, we propose that spatial distribution of pottery workshops is the main influence of the making techniques processes \cite{schillinger}. Four pottery workshops, showed in the map \textbf{(fig.1)} were studied from different spaces in \emph{Baetica}. 
+\section{Empirical Studies}
+Measure on amphora and PCA : we observe a correlation of variation given distance.
+
+
+\section{Theoretical Exploration}
+\subsection{Experimental Setup}
+\begin{figure}[H!]
+    \begin{tabular}{m{4cm}m{4cm}}
+	{\tiny No Horizontal Transmission} & {\centering\tiny Horizontal Transmission }\\
+	\resizebox{4cm}{!}{
+	    \input{images/schemaNTL.tikz}
+	}
+	&
+	\resizebox{4cm}{!}{
+	    \input{images/schemaTL.tikz}
+	}\\
+	\resizebox{4cm}{!}{
+	    \input{images/schemaNTC.tikz}
+	}	&
+	\resizebox{4cm}{!}{
+	    \input{images/schemaTC.tikz}
+	}	
+    \end{tabular}
+\end{figure}
+
+
+\subsection{Results}
+    \begin{figure}[H!]
+	\begin{tabular}{m{4cm}m{4cm}}
+	    {\tiny \hspace{.4cm}No Horizontal Transmission} & {\centering\tiny Horizontal Transmission }\\
+	    \includegraphics[height=4cm]{images/lineNC.png}
+	    &
+	    \includegraphics[height=4cm]{images/lineC.png}\\
+	    \includegraphics[height=4cm]{images/cubeNC.png}
+	    &
+	    \includegraphics[height=4cm]{images/cubeC.png}\\
+	\end{tabular}
+	\caption{Evolution of the varation between the workshop of the mean of the exterior diameter}
+    \end{figure}
+ 
+
+
+\end{document}
+
+
+
+
