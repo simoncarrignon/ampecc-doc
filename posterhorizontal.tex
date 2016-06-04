@@ -37,14 +37,17 @@
 \usepackage{graphicx}  % Required for including images
 
 \usepackage{booktabs} % Top and bottom rules for tables
+\usepackage{standalone} % to load standalone file (itkz picture for ex)
+\usepackage{array} %finest gestion of tabular
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION 
 %----------------------------------------------------------------------------------------
 
-\title{Exploring the dynamic of changes: A model to understand the amphorae production patterns in the Roman Empire} % Poster title
+%\title{Exploring the dynamic of cultural changes: A model to understand the amphorae production patterns in the Roman Empire} % Poster title
+\title{New perspective on the study of variations in Amphorae production during the Roman Empire} % Poster title
 
-\author{Gabacho, Mariquilla and el rubio} % Author(s)
+\author{Maria Coto, Simon Carrignon and Xavier Rubio-Campillo} % Author(s)
 
 \institute{Barcelona Supercomputing Center - University of Barcelona} % Institution(s)
 
@@ -78,11 +81,12 @@ hypothesis, we think that making techniques processes were transmitted by vertic
 \begin{block}{Dataset}
 
 
-We analysed a sample of 413 amphora shapes from 4 different workshops showed in the map \textbf{(fig.1)}.These workshops were selected from different sites of \emph{Baetica} province in order to know if morphometric distance was correlated with spatial distance. A set 90 samples from each workshop were used to create a database. 8 measures focused on the rim were taken from each amphorae sample. 
+    We analysed a sample of 413 amphora shapes from 4 different workshops showed in the map \textbf{(fig.\ref{fig:betica})}.These workshops were selected from different sites of \emph{Baetica} province in order to know if morphometric distance was correlated with spatial distance. A set 90 samples from each workshop were used to create a database. 8 measures focused on the rim were taken from each amphorae sample. 
 
 \begin{figure}
 \includegraphics[width=0.7\linewidth]{images/fig1.png}
 \caption{Pottery workshops were distributed along rivers Guadalquivir and Genil. Red circles belong to the workshops analysed}
+\label{fig:betica}
 \end{figure}
 
 
@@ -109,7 +113,7 @@ PCA was used to explore these metrical observations with the 8 measurement as va
 \vspace{1cm}
 {\textbf{Results}}\\
 \justify
-\textbf{Figure 2} shows the workshops with a minor space such Bel\'en and Malpica share more pottery traits than the rest: Parlamento and Las Delicias.
+Figure~\ref{fig:pca} shows that the closest workshops in space (Bel\'en and Malpica) produce more similar pottery traits than the farer workshops Parlamento and Las Delicias.
 
 
 \end{column}
@@ -122,6 +126,7 @@ PCA was used to explore these metrical observations with the 8 measurement as va
 \begin{figure}
 \includegraphics[width=0.6\linewidth]{images/fig2.png}
 \caption{First and Second Principal Components for the analysed sample}
+\label{fig:pca}
 \end{figure}
 
 \end{column}
@@ -134,22 +139,53 @@ PCA was used to explore these metrical observations with the 8 measurement as va
 
 \begin{columns}[t,totalwidth=\twocolwid]
 
-\begin{column}{\onecolwid} %first subcolumn left
+\begin{column}{1.025\onecolwid} %first subcolumn left
 %on the left
 
 {\textbf{Model}}\\
 \justify
+We propose a simple model where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique or to copy the one used by another workshop. 
+\begin{figure}
+	    \centering
+	%\resizebox{}{!}{
+    \input{images/schemaTL.tikz}
+%}
+    \caption{Schema of the model}
+    \label{fig:mod}
+\end{figure}
 
-We propose a simple model where a fixed number of workshop are producing a fixed amount of amphora during a certain time. 
-To simplify the problem the amphora production is describe by only one measure among the measure previously observed (external diameter) and each workshop produce amphora where this measure follow a normal distribution. The parameter of this normal distribution (the mean value and the standard deviation) are the cultural knowledge that workshop can or cannot exchange given the different setup. Every 100 time step each workshop have a certain probability to modify those parameter and/or to copy the one used by another workshop. 
+{\textbf{Horizontal Transmission:}}\\
+To test the impact of horizontal transmission on the variation in production between the workshop, we introduce a penalties: workshop more farer to $WS_0$ has lesser chance to make a cultural copy ($p=f(d)$ with $d$ the distance to $WS_0$)
 
 
 \end{column}
 
-\begin{column}{\sepwid}\end{column} % Empty spacer column
+%\begin{column}{.2\sepwid}\end{column} % Empty spacer column
 
-\begin{column}{\onecolwid} %first subcolumn right
-on the right
+\begin{column}{1.025\onecolwid} %first subcolumn right
+\justify
+
+{\textbf{Result:}}\\
+If the probability of horizontal transfer of knowledge between workshop is high the variation between the production is low. If the probability of cultural transfer is low, the variability is high, till it reaches its maximum where no horizontal transfer is allowed.
+
+    \begin{figure}[h!]
+    \centering
+	\caption{Evolution of the variation of the mean of the observed measure between the workshops for different Horizontal Transmission penalities}
+	%\begin{tabular}{m{.3\textwidth}m{.3\textwidth}m{.3\textwidth}}
+    \begin{tabular}{ccc}
+	     $f(d)=d$ & $f(d)=d^3$ & No Copy\\
+	    
+	    \includegraphics[height=.3\textwidth]{images/lineC.png}
+	    &
+	    \includegraphics[height=.3\textwidth]{images/cubeC.png}
+	    &
+	    \includegraphics[height=.3\textwidth]{images/lineNC.png}\\
+	\end{tabular}
+	\label{fig:resmod}
+    \end{figure}
+
+
+    
 \end{column}
  % End of the second column
 \end{columns}
@@ -166,6 +202,8 @@ on the right
 \begin{block}{Concluding Remarks}
 
 Empirical studies identified a variation on the making techniques processes among pottery workshops. We observe that this variability is affected by the distance: amphorae made in nearby workshops with a minor spacial distance share more traits than amphorae made in pottery workshops farther. It suggests that the pottery techniques were learned from master to disciple instead of workers with the same level. 
+
+The theoretical model support those claim as it shows that when introducing the possibility of horizontal transmission between the workshop the diversity of production quickly decrease.
  
 \end{block}
 
