@@ -66,9 +66,6 @@
 
 \begin{column}{\onecolwid} % The first column
 
-%----------------------------------------------------------------------------------------
-%	OBJECTIVES
-%----------------------------------------------------------------------------------------
 
 \begin{block}{Introduction}
 
@@ -77,124 +74,90 @@ In particular, we want to identify changes on the pattern productions and if the
 hypothesis, we think that making techniques processes were transmitted by vertical transmission based on the learning production techniques from master to disciple instead of horizontal transmission where this learning is done by workers with the same level. If this hypothesis is validated amphorae made in nearby workshops should share more traits than amphorae made from farthest workshops. Empirical studies and theoretical model were propose to test this hypothesis. 
 \end{block}
 
+
+\begin{block}{Dataset}
+
+
+We analysed a sample of 413 amphora shapes from 4 different workshops showed in the map \textbf{(fig.1)}.These workshops were selected from different sites of \emph{Baetica} province in order to know if morphometric distance was correlated with spatial distance. A set 90 samples from each workshop were used to create a database. 8 measures focused on the rim were taken from each amphorae sample. 
+
 \begin{figure}
-\includegraphics[width=0.4\linewidth]{images/fig1.png}
+\includegraphics[width=0.7\linewidth]{images/fig1.png}
 \caption{Pottery workshops were distributed along rivers Guadalquivir and Genil. Red circles belong to the workshops analysed}
 \end{figure}
 
 
-\begin{block}{Empirical studies}
-
-{\textbf{Measurements}} \\
-
-We analysed a sample of 413 amphora shapes from 4 different workshops.These workshops were selected from different sites of \emph{Baetica} province in order to know if morphometric distance was correlated with spatial distance. A set 90 samples from each workshop were used to create a database. 8 measures focused on the rim were taken from each amphorae sample. 
-
-\vspace{1cm}
-
-{\textbf{Principal Component Analysis}} \\
-
-PCA was used to explore these metrical observations with the 8 measurement as variables. Results allow us to simplify the analysis by grouping the variance of the dataset. The first two principal components were chosen to see the significant differences among workshops. \textbf{Figure 2} shows the workshops with a minor space such Bel\'en and Malpica share more pottery traits than the rest: Parlamento and Las Delicias.
-
- 
-\end{block}
+ \end{block}
 \end{column} % End of the first column
 
 %BEGIN THE SECOND COLUMN-------------------------------------------------
+\begin{column}{\twocolwid}
 
+
+\begin{block}{Multivariate analysis}
+\begin{columns}[t,totalwidth=\twocolwid]
+
+
+
+\begin{column}{\onecolwid} %first subcolumn left
+
+
+{\textbf{Principal Component Analysis}} 
+\justify
+
+PCA was used to explore these metrical observations with the 8 measurement as variables. Results allow us to simplify the analysis by grouping the variance of the dataset. The first two principal components were chosen to see the significant differences among workshops. 
+
+\vspace{1cm}
+{\textbf{Results}}\\
+\justify
+\textbf{Figure 2} shows the workshops with a minor space such Bel\'en and Malpica share more pottery traits than the rest: Parlamento and Las Delicias.
+
+
+\end{column}
 
 \begin{column}{\sepwid}\end{column} % Empty spacer column
 
-\begin{column}{\twocolwid} % Begin a column which is two columns wide (column 2)
+\begin{column}{\onecolwid} %first subcolumn right
 
 
-\begin{block}{}
-
-\begin{columns}
-
-\begin{column}{0.48\textwidth}
-
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{images/fig2.png}
+\caption{First and Second Principal Components for the analysed sample}
+\end{figure}
 
 \end{column}
-
-\begin{column}{0.48\textwidth}
-
-\end{column}
-
+ % End of the second column
 \end{columns}
 
 \end{block}
- % End of column 2.1
 
+\begin{block}{Theoretical Exploration}
 
-%----------------------------------------------------------------------------------------
-%	IMPORTANT RESULT
-%----------------------------------------------------------------------------------------
+\begin{columns}[t,totalwidth=\twocolwid]
 
-\begin{block}{Results}
-\begin{columns}
-\begin{column}{0.48\textwidth}
+\begin{column}{\onecolwid} %first subcolumn left
+%on the left
 
+{\textbf{Model}}\\
 \justify
-Several multivariate methods were used such as Principal Component Analysis and Discriminant Analysis to classify. These methods allowed us to know the differences on the pattern production among workshops.In our case, the first two principal components were taken to see the significal differences among workshops depending on the space. The \textbf{figure 2} shows the workshops with a minor space such Bel\'en and Malpica share more pottery traits than the rest: Parlamento and Las Delicias.
 
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{images/fig2.png}
-\caption{Plot with the results of the first two principal components given by the PCA}
-\end{figure}
+We propose a simple model where a fixed number of workshop are producing a fixed amount of amphora during a certain time. 
+To simplify the problem the amphora production is describe by only one measure among the measure previously observed (external diameter) and each workshop produce amphora where this measure follow a normal distribution. The parameter of this normal distribution (the mean value and the standard deviation) are the cultural knowledge that workshop can or cannot exchange given the different setup. Every 100 time step each workshop have a certain probability to modify those parameter and/or to copy the one used by another workshop. 
 
-Once defined the components, we used Discriminant Analysis to find a combination among them to define the groups as well as possible. These results were translated to a confusion matrix which basically means what results were predicted as true or false on the discriminant analysis. 
 
 \end{column}
 
-\begin{column}{0.48\textwidth}
+\begin{column}{\sepwid}\end{column} % Empty spacer column
 
-\justify
-
- Thus the system had troubles to distinguishing between Bel\'en and Malpica which had a higher number of confusion or number instead of Parlamento with a minor confusion than the rest. 
-
- 
-\begin{figure}
-\includegraphics[width=0.6\linewidth]{images/fig3.png}
-\caption{Matrix of confusion. Accuracy: 0.5573. P-Value: 0.0006991.}
-\end{figure}
-
-\justify
-As shown in the \textbf{figure 3} of confusion, all correct guesses were located in the diagonal of the table.\\
-A peer to peer comparison was developed among different workshops. We calculated the geographical distance between each site and the distance among pottery measures, calculated using the previous results. The \textbf{figure 4}  shows that the pottery distance is correlated with the spatial distance of workshops.  
-
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{images/fig2.png}
-\caption{Distance metrics calculated among different workshops.}
-\end{figure}
-
- 
+\begin{column}{\onecolwid} %first subcolumn right
+on the right
 \end{column}
+ % End of the second column
 \end{columns}
 
-\end{block} 
+\end{block}
+\end{column}
 
-%----------------------------------------------------------------------------------------
-
-\begin{columns}[t,totalwidth=\twocolwid] % Split up the two columns wide column again
-
-\begin{column}{\onecolwid} % The first column within column 2 (column 2.1)
-
-
-\end{column} % End of column 2.1
-
-\begin{column}{\onecolwid} % The second column within column 2 (column 2.2)
-
-
-\end{column} % End of column 2.2
-
-\end{columns} % End of the split of column 2
-
-\end{column} % End of the second column
-
-
-
-
-%BEGIN THIRD COLUMN----------------------------------------------------
+%BEGIN LAST COLUMN----------------------------------------------------
 
 \begin{column}{\sepwid}\end{column} % Empty spacer column
 
@@ -202,12 +165,14 @@ A peer to peer comparison was developed among different workshops. We calculated
 
 \begin{block}{Concluding Remarks}
 
-Differences among pottery workshops were identified using PCA and Discriminant Analysis. As results, Amphorae made in nearby workshops with a minor spacial distance, such as Malpica and Bel\'en, share more traits than amphorae made in pottery workshops farther as Parlamento. It could suggest that the pottery techniques were learned from master to disciple instead of workers with the same level . 
-
+Empirical studies identified a variation on the making techniques processes among pottery workshops. We observe that this variability is affected by the distance: amphorae made in nearby workshops with a minor spacial distance share more traits than amphorae made in pottery workshops farther. It suggests that the pottery techniques were learned from master to disciple instead of workers with the same level. 
+ 
 \end{block}
 
 \begin{block}{References}
 \small
+
+\begin{thebibliography}{50}
 
 \bibitem[1]{mesoudi}\textsc{Mesoudi, A. (2015)}
 \textit{Cultural Evolution: A review of Theory, Finding and Controversies}, Evolutionary biology.
@@ -221,6 +186,7 @@ Differences among pottery workshops were identified using PCA and Discriminant A
 \bibitem[4]{li}\textsc{Li, A. (2014)}
 \textit{Crossbows and imperial craft organisation: the bronze triggers of China's Terracotta Army}, Antiquity, 88.339.
 
+\end{thebibliography}
 
 \end{block}
 
@@ -232,7 +198,7 @@ Differences among pottery workshops were identified using PCA and Discriminant A
 
 \begin{block}{Acknowledgements}
 
-\small{\rmfamily{The Funding for this work was provided by the ERC Advanced Grant EPNet (340828)}} \\
+\small{\rmfamily{The Funding for this work was provided by the ERC Advanced Grant EPNet (340828)}}
 
 \end{block}
 
@@ -243,17 +209,6 @@ Differences among pottery workshops were identified using PCA and Discriminant A
 \setbeamercolor{block alerted title}{fg=white,bg=dblue!70} % Change the alert block title colors
 \setbeamercolor{block alerted body}{fg=black,bg=white} % Change the alert block body colors
 
-\begin{block}{Contact Information}
-
-\begin{figure}
-\includegraphics[width=0.1\linewidth]{images/qrplanet.png}
-\end{figure}
-\begin{center}
- \href{mailto:maria.coto@bsc.es}{maria.coto@bsc.es}
-\end{center}
-
-
-\end{block}
 
 \begin{center}
 \begin{tabular}{ccc}
