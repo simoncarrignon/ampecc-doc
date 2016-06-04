@@ -74,7 +74,14 @@ We propose a simple model where a fixed number of workshop are producing a fixed
 
 To simplify the problem the amphora production is describe by only one measure among the measure previously observed (external diameter) and each workshop produce amphora where this measure follow a normal distribution. The parameter of this normal distribution (the mean value and the standard deviation) are the cultural knowledge that workshop can or cannot exchange given the different setup. Every 100 time step each workshop have a certain probability to modify those parameter and/or to copy the one used by another workshop. 
 
-
+To calibrate the model we choose to use the measure that exhibit the more inter-workshop variation: the size of the protruding rim. We can observe the distribution of this mesure in the Figure~\ref{fig:prot}.
+\begin{figure}[h!]
+    \begin{center}
+	\includegraphics[width=0.6\linewidth]{images/prot.pdf}
+    \end{center}
+    \caption{Size of the protruding rim for all amphora studied in Each workshop}
+    \label{fig:prot}
+\end{figure}
 
 \subsection{Experimental Setup}
 We create 4 different experimental setup that help us to test the impact of the horizontal transmission on the evolution of the variation in production of amphora given different penalities between each workshop. In two case the vertical transmission (\emph{ie} the copy of the parameter of the normal distribution) (left column of the Figure~\ref{fig:setmodel} are impossible; in the two other case (right column) yes. In two case the distance between two adjacent workshops is the same (top row of Fig~\ref{fig:setmodel}), in two other case (bottom row) no.
@@ -120,7 +127,8 @@ We run 100 simulation for each setup during $10\,000$ steps. For each simulation
 
     We observe that in the cases without vertical transmission the variation between the mean of the measure grows, as every workshop wil slowly change is way to produce amphora without interacting with the other. In the two other case, if all the workshops are close enough, the cultural transmission of knowledge will leave the variation between workshops at a same level. In order to have an increase of the variation in production techniques between the amphora, some strong obstacle in transmission such has a high cost of travel, has to be introduce.
 
-    \section{Conclusion}
+
+\section{Conclusion}
     
     This suggest that in order to have a suffisant amount of variation between production technic the need for some isolation is mandatory. This could be by spatial isolation or via cultural isolation. 
  
