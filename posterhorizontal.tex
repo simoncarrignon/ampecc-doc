@@ -39,6 +39,7 @@
 \usepackage{booktabs} % Top and bottom rules for tables
 \usepackage{standalone} % to load standalone file (itkz picture for ex)
 \usepackage{array} %finest gestion of tabular
+\usepackage{algorithm,algorithmicx,algpseudocode}
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION 
@@ -73,7 +74,7 @@
 \begin{block}{Introduction}
 
 Material culture variability allows to understand the interpretation of the change processes, focused on the production of olive oil amphorae (called Dressel 20) during the Roman Empire. \\
-In particular, we want to identify changes on the pattern productions and if these changes were produced by economical and political reasons ~\cite{schillinger}. As
+In particular, we want to identify changes on the pattern productions and if these changes were produced by economical and political reasons ~\cite{schillinger_differences_2016}. As
 hypothesis, we think that making techniques processes were transmitted by vertical transmission based on the learning production techniques from master to disciple instead of horizontal transmission where this learning is done by workers with the same level. If this hypothesis is validated amphorae made in nearby workshops should share more traits than amphorae made from farthest workshops. Empirical studies and theoretical model were propose to test this hypothesis. 
 \end{block}
 
@@ -144,7 +145,7 @@ Figure~\ref{fig:pca} shows that the closest workshops in space (Bel\'en and Malp
 
 {\textbf{Model}}\\
 \justify
-We propose a simple model where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique or to copy the one used by another workshop. 
+We propose a model implementing the Wright-Fisher view of Random Drift, where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique (\emph{ie} the vertical tramsission) or to copy the one used by another workshop (\emph{the horizontal transmission}). 
 \begin{figure}
 	    \centering
 	%\resizebox{}{!}{
@@ -153,10 +154,30 @@ We propose a simple model where a fixed number of workshop produce a fixed amoun
     \caption{Schema of the model}
     \label{fig:mod}
 \end{figure}
+\begin{algorithm}[H]
+\caption{Model}
+\label{algo:complete}
+	\begin{algorithmic}[1]
+	\tiny
+	\State SIMULATION:
+		\Loop{$~step \in TimeSteps$}
+			\For{$i \in Pop$}
+				\State $AmphoraProduction(M^j,V^j)$
+			\EndFor
+			\For{$i \in Pop$}
+				\State $ConsumeGoods(Q^i)$ \Comment{All goods are consumed}
+				\If{$ (step \mod CulturalStep) = 0$}	
+					\State $CulturalTransmission(V)$
+					\State $Innovation(V^i)$
+				\EndIf
+			\EndFor
+		\EndLoop
+\end{algorithmic}
+\end{algorithm}
 
 {\textbf{Horizontal Transmission}}\\
 \justify
-To test the impact of horizontal transmission on the variation in production between the workshop, we introduce a penalties: workshop more farer to $WS_0$ has lesser chance to make a cultural copy ($p=f(d)$ with $d$ the distance to $WS_0$)
+To test the impact of horizontal transmission on the variation in production between the workshop we simplify the problem by focusin on the study of the variation of only one traits. We also introduce a penalties: workshops farer to $WS_0$ have lesser chance to make a cultural copy ($p=f(d)$ with $d$ the distance to $WS_0$)
 
 
 \end{column}
@@ -206,27 +227,16 @@ If the probability of horizontal transfer of knowledge between workshop is high 
 Empirical studies identified a variation on the making techniques processes among pottery workshops. We observe that this variability is affected by the distance: amphorae made in nearby workshops with a minor spacial distance share more traits than amphorae made in pottery workshops farther. It suggests that the pottery techniques were learned from master to disciple instead of workers with the same level. 
 
 The theoretical model support those claim as it shows that when introducing the possibility of horizontal transmission between the workshop the diversity of production quickly decrease.
+\cite{lycett2015}
  
 \end{block}
 
 \begin{block}{References}
-\small
 
-\begin{thebibliography}{50}
-
-\bibitem[1]{mesoudi}\textsc{Mesoudi, A. (2015)}
-\textit{Cultural Evolution: A review of Theory, Finding and Controversies}, Evolutionary biology.
-
-\bibitem[2]{agui}\textsc{Aguilera, A. (1998)}
-\textit{An\'alisis multivariable: una nueva v\'ia para la caracterizaci\'on cer\'amica}, Pyranae, 29.
-
-\bibitem[3]{schillinger}\textsc{Schillinger, K. et al. (2006)}
-\textit{Differences in Manufacturing Traditions and Assemblage-Level Patterns: the Origins of Cultural Differences in Archaeological Data}, Journal of Archaeological Method Theory.
-
-\bibitem[4]{li}\textsc{Li, A. (2014)}
-\textit{Crossbows and imperial craft organisation: the bronze triggers of China's Terracotta Army}, Antiquity, 88.339.
-
-\end{thebibliography}
+	\scriptsize
+	\renewcommand{\refname}{\vspace{-0.5em}}
+	\bibliographystyle{abbrv}
+	\bibliography{biblio}
 
 \end{block}
 
