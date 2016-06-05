@@ -153,19 +153,40 @@ Figure~\ref{fig:pca} suggests that amphorae from closer workshops tend to be mor
 
 {\textbf{Model}}\\
 \justify
-We propose a simple model where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique or to copy the one used by another workshop. 
-\begin{figure}
+We propose a model implementing the Wright-Fisher view of Random Drift, where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique (\emph{ie} the vertical tramsission) or to copy the one used by another workshop (\emph{the horizontal transmission}). 
+	\begin{figure}
+\begin{columns}
+    \begin{column}{.6\textwidth}
 	    \centering
-	%\resizebox{}{!}{
-    \input{images/schemaTL.tikz}
-%}
-    \caption{Schema of the model}
-    \label{fig:mod}
-\end{figure}
+	\resizebox{\textwidth}{!}{
+	    \input{images/schemaTL.tikz}
+}
+	    \label{fig:mod}
+    \end{column}
+    \begin{column}{.4\textwidth}
+	\begin{algorithmic}
+	    \tiny
+	    \State Model:
+	    \Loop{$~step \in TimeSteps$}
+	    \For{$i \in Pop$}
+	    \State $AmphoraProduction(T^j)$
+	    \If{$ (step \mod CulturalStep) = 0$}	
+	    \State $Innovation(T^i)$
+	    \State $CulturalTransmission(V)$
+	    \EndIf
+	    \EndFor
+	    \EndLoop
+	\end{algorithmic}
+    \end{column}
+\end{columns}
+
+	    \caption{Schema (left) and pseudo-code (right) of the model }
+	\end{figure}
 
 {\textbf{Horizontal Transmission}}\\
 \justify
-To test the impact of horizontal transmission on the variation in production between the workshop, we introduce a penalties: workshop more farer to $WS_0$ has lesser chance to make a cultural copy ($p=f(d)$ with $d$ the distance to $WS_0$)
+To test the impact of horizontal transmission on the variation in production between the workshop we simplify the problem by focusin on the study of the variation of only one traits. We also introduce a penalties: workshops farer to $WS_0$ have lesser chance to make a cultural copy ($p=f(d)$ with $d$ the distance to $WS_0$)
+
 
 
 \end{column}
@@ -237,6 +258,10 @@ The theoretical model support those claim as it shows that when introducing the 
 \textit{Crossbows and imperial craft organisation: the bronze triggers of China's Terracotta Army}, Antiquity, 88.339.
 
 \end{thebibliography}
+%	\scriptsize
+%	\renewcommand{\refname}{\vspace{-0.5em}}
+%	//\bibliographystyle{abbrv}
+%	\bibliography{biblio}
 
 \end{block}
 
