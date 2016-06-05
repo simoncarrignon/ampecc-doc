@@ -146,34 +146,34 @@ Figure~\ref{fig:pca} shows that the closest workshops in space (Bel\'en and Malp
 {\textbf{Model}}\\
 \justify
 We propose a model implementing the Wright-Fisher view of Random Drift, where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique (\emph{ie} the vertical tramsission) or to copy the one used by another workshop (\emph{the horizontal transmission}). 
-\begin{figure}
+	\begin{figure}
+\begin{columns}
+    \begin{column}{.6\textwidth}
 	    \centering
-	%\resizebox{}{!}{
-    \input{images/schemaTL.tikz}
-%}
-    \caption{Schema of the model}
-    \label{fig:mod}
-\end{figure}
-\begin{algorithm}[H]
-\caption{Model}
-\label{algo:complete}
-	\begin{algorithmic}[1]
-	\tiny
-	\State SIMULATION:
-		\Loop{$~step \in TimeSteps$}
-			\For{$i \in Pop$}
-				\State $AmphoraProduction(M^j,V^j)$
-			\EndFor
-			\For{$i \in Pop$}
-				\State $ConsumeGoods(Q^i)$ \Comment{All goods are consumed}
-				\If{$ (step \mod CulturalStep) = 0$}	
-					\State $CulturalTransmission(V)$
-					\State $Innovation(V^i)$
-				\EndIf
-			\EndFor
-		\EndLoop
-\end{algorithmic}
-\end{algorithm}
+	\resizebox{\textwidth}{!}{
+	    \input{images/schemaTL.tikz}
+}
+	    \label{fig:mod}
+    \end{column}
+    \begin{column}{.4\textwidth}
+	\begin{algorithmic}
+	    \tiny
+	    \State Model:
+	    \Loop{$~step \in TimeSteps$}
+	    \For{$i \in Pop$}
+	    \State $AmphoraProduction(T^j)$
+	    \If{$ (step \mod CulturalStep) = 0$}	
+	    \State $Innovation(T^i)$
+	    \State $CulturalTransmission(V)$
+	    \EndIf
+	    \EndFor
+	    \EndLoop
+	\end{algorithmic}
+    \end{column}
+\end{columns}
+
+	    \caption{Schema (left) and pseudo-code (right) of the model }
+	\end{figure}
 
 {\textbf{Horizontal Transmission}}\\
 \justify
