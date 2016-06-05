@@ -1,7 +1,7 @@
 \documentclass{standalone}
 
 \begin{document}
-    \begin{tikzpicture}[thick,scale=2]
+    \begin{tikzpicture}[thick,scale=3.5]
 		\coordinate (WS0) at (0,0);
 		\coordinate (WS1) at (1,0);
 		\coordinate (WS2) at (2,0);
