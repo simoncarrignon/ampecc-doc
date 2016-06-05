@@ -39,6 +39,7 @@
 \usepackage{booktabs} % Top and bottom rules for tables
 \usepackage{standalone} % to load standalone file (itkz picture for ex)
 \usepackage{array} %finest gestion of tabular
+\usepackage{algorithm,algorithmicx,algpseudocode}
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION 
@@ -151,9 +152,9 @@ Figure~\ref{fig:pca} suggests that amphorae from closer workshops tend to be mor
 \begin{column}{1.025\onecolwid} %first subcolumn left
 %on the left
 
-{\textbf{Model}}\\
+{\textbf{Model \& Experiment}}\\
 \justify
-We propose a model implementing the Wright-Fisher view of Random Drift, where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique (\emph{ie} the vertical tramsission) or to copy the one used by another workshop (\emph{the horizontal transmission}). 
+We propose a model implementing the Wright-Fisher view of Random Drift where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique (\emph{ie} the vertical tramsission) or to copy the one used by another workshop (\emph{the horizontal transmission}). 
 	\begin{figure}
 \begin{columns}
     \begin{column}{.6\textwidth}
@@ -170,7 +171,7 @@ We propose a model implementing the Wright-Fisher view of Random Drift, where a 
 	    \Loop{$~step \in TimeSteps$}
 	    \For{$i \in Pop$}
 	    \State $AmphoraProduction(T^j)$
-	    \If{$ (step \mod CulturalStep) = 0$}	
+	    \If{$ (step mod 100) = 0$}	
 	    \State $Innovation(T^i)$
 	    \State $CulturalTransmission(V)$
 	    \EndIf
@@ -183,7 +184,7 @@ We propose a model implementing the Wright-Fisher view of Random Drift, where a 
 	    \caption{Schema (left) and pseudo-code (right) of the model }
 	\end{figure}
 
-{\textbf{Horizontal Transmission}}\\
+%{\textbf{Horizontal Transmission}}\\
 \justify
 To test the impact of horizontal transmission on the variation in production between the workshop we simplify the problem by focusin on the study of the variation of only one traits. We also introduce a penalties: workshops farer to $WS_0$ have lesser chance to make a cultural copy ($p=f(d)$ with $d$ the distance to $WS_0$)
 
