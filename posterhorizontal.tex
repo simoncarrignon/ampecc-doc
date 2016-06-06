@@ -159,45 +159,48 @@ Figure~\ref{fig:pca} suggests that amphorae from closer workshops tend to be mor
 
 {\textbf{Model }}\\
 \justify
-We propose a model based on the Wright-Fisher's random drift model to test the impact of horizontal vs vertical transmission (HT vs VT) on the variation in production between workshops.  %and to give an idea on which conditions can explain the variation revealed by the PCA. 
+We propose a model based on classical random drift model to test the impact of horizontal vs vertical transmission (HT vs VT) on the variation in production between workshops.  %and to give an idea on which conditions can explain the variation revealed by the PCA. 
 
-A set $Pop$ of $N$ workshops sharing the same initial production technics $P^{0}$ are positioned along a line at an increasing distance (Fig~\ref{fig:mod},~left). %In this model workshops produce a certain number of amphorae \& can: (1) change their production technics following a random inovation procedure (vertical transmission) or (2) copy the production techniques of another workshop.
-The algorithm is given in the Fig~\ref{fig:mod}~(right).  
+A set $Pop$ of $N$ workshops sharing the same initial production technics $P^{0}$ are positioned along a line at increasing distances.% (Fig~\ref{fig:mod},~left). %In this model workshops produce a certain number of amphorae \& can: (1) change their production technics following a random inovation procedure (vertical transmission) or (2) copy the production techniques of another workshop.
+ The algorithm is defined as follow : %given in the Fig~\ref{fig:mod}~(right).  
 %where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique (\emph{ie} the vertical tramsission) or to copy the one used by another workshop (\emph{the horizontal transmission}). 
+\vspace{.7cm}
 
-	\begin{figure}
+	%\begin{figure}
 \begin{columns}
-    \begin{column}{.4\textwidth}
+%    \begin{column}{.4\textwidth}
 	    \centering
-	\resizebox{\textwidth}{!}{
-	    \input{images/schemaTL.tikz}
-}
-    \end{column}
-    \begin{column}{.6\textwidth}
-	\begin{algorithmic}
-	    \footnotesize
-	    \State Initialization:
-	    \For{$i \in Pop$}
-	    \State $P^{i} = P^{0}$
-	    \EndFor
-	    \State Simulation:
-	    \Loop{$~step \in TimeSteps$}
-	    \For{$i \in Pop$}
-	    \State $AmphoraProduction(P^{i})$
-	    \If{$ (step \mod 100) = 0$}	
-	    \State $P^{i}=Innovation(P^{i})$ 	\Comment{VT}
-	    \State $P^{i}=RandomCopy(Pop)$		\Comment{HT}
-	    \EndIf
-	    \EndFor
-	    \EndLoop
-	\end{algorithmic}
-    \end{column}
+%	\resizebox{\textwidth}{!}{
+%	    \input{images/schemaTL.tikz}
+%}
+%    \end{column}
+    \begin{column}{.9\textwidth}
+	\begin{algorithm}[H]
+	    \begin{algorithmic}
+		\footnotesize
+		\State INITIALIZATION:
+		\For{$i \in Pop$}
+		\State $P^{i} = P^{0}$
+		\EndFor
+		\State SIMULATION:
+		\Loop{$~step \in TimeSteps$}
+		\For{$i \in Pop$}
+		\State $AmphoraProduction(P^{i})$
+		\If{$ (step \mod 100) = 0$}	
+		\State $P^{i}=Innovation(P^{i})$ \Comment{Vertical Transmission}
+		\State $P^{i}=RandomCopy(Pop)$	\Comment{Horizontal Transmission}
+		\EndIf
+		\EndFor
+		\EndLoop
+	    \end{algorithmic}
+	    %\caption{Schema (left) and pseudo-code (right) of the model }
+	    \caption{Model }
+	    \label{fig:mod}
+	\end{algorithm}
+   \end{column}
 \end{columns}
 
-\singlespace
-	    \caption{Schema (left) and pseudo-code (right) of the model }
-	    \label{fig:mod}
-	\end{figure}
+%\singlespace
 
 %{\textbf{Horizontal Transmission}}\\
 
@@ -213,8 +216,8 @@ The algorithm is given in the Fig~\ref{fig:mod}~(right).
 
 {\textbf{Experiment \& Result}}\\
 We simplify the problem by focusing on the variation of one trait. To measure the influence of HT \& spatial distance we bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$.
-For each level of bias we run $100$ simulations with 4 workshops and we look how the trait vary between each workshop at the end.\vspace{-.7cm}
-
+For each level of bias we run $100$ simulations with 4 workshops and we look how the trait vary between each workshop at the end.
+\vspace{-.7cm}
 
     \begin{figure}[h!]
     \centering
@@ -230,10 +233,14 @@ For each level of bias we run $100$ simulations with 4 workshops and we look how
 %	\end{tabular}
 	\includegraphics[width=0.5\linewidth]{images/interworkshopvar.pdf}
 \singlespace
+\vspace{-.8cm}
 \caption{Inter-workshop variation of the trait after $10\,000$ timestep and for different bias toward distance.}%\vspace{-1.6cm}
 	
 	\label{fig:resmod}
     \end{figure}
+\vspace{-1cm}
+
+
 
 The variation between the production is high only if there is no HT or if the probability of cultural transfer is strongly biased toward the closest neighbour.
 
