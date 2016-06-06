@@ -79,7 +79,9 @@
 
 \justify
 
-Material culture variability allows us to understand the interpretation of the change processes~\cite{lycett}. In particular, we want to identify changes on the amphorae production and whether making techniques processes were related with the spatial distribution, following isolation-by-distance model~\cite{bjo}, which basically means amphorae made in nearby workshops might share more similar traits than amphorae made from farthest workshops. As hypothesis, production techniques would be vertically transmitted based on the learning from master to disciple instead of horizontal transmission where this learning is done by workers with the same level. Empirical studies and theoretical model were proposed to test this hypothesis.
+Material culture variability allows us to interpret the change in the production processes~\cite{lycett}. In particular, we want to identify changes on the amphorae production and whether making techniques processes were vertically or horizontally transmitted. A correlation between variation and spatial distance were observed in this study. In this case, amphorae made in nearby workshops might share more similar traits than amphorae made from farthest workshops, following isolation-by distance~\cite{bjo}. If it exists a strong variation on production techniques between workshops correlated with the distance, the learning would be vertical (from master to disciple). Conversely, the learning would be horizontal (learning done by mobile workers with the same level of knowledge). We propose to combine empirical studies with theoretical computer model to test this hypothesis.
+
+%As hypothesis, strong variations on the production techniques would 
  
   
 \end{block}
@@ -219,7 +221,7 @@ A set $Pop$ of $N$ workshops sharing the same initial production technics $P^{0}
 We simplify the problem by focusing on the variation of one trait. To measure the influence of HT \& spatial distance we bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$.
 For each level of bias we run $100$ simulations with 4 workshops and we look how the trait varies between each workshop at the end.
 
-The fig~\ref{fig:resmod} shows that variation in production is high only if there is no HT or if the transfer is strongly biased toward the closest neighbour.
+The fig~\ref{fig:resmod} shows that the variation between the production is high only if there is no HT or if the probability of cultural transfer is strongly biased toward the closest neighbour.
 \vspace{-1cm}
 
     \begin{figure}[h!]
@@ -237,7 +239,8 @@ The fig~\ref{fig:resmod} shows that variation in production is high only if ther
 	\includegraphics[width=0.5\linewidth]{images/interworkshopvar.pdf}
 \singlespace
 \vspace{-.8cm}
-\caption{Inter-workshop variation of the mean of the trait after $10\,000$ timestep in setup where the horizontal transfer probability varies (100 simulations per condition).}
+\caption{Inter-workshop variation of the mean of the trait after $10\,000$ timestep and for different bias toward distance.}%\vspace{-1.6cm}
+	
 	\label{fig:resmod}
     \end{figure}
 \vspace{-1cm}
