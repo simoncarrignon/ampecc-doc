@@ -47,7 +47,9 @@
 %----------------------------------------------------------------------------------------
 
 %\title{Exploring the dynamic of cultural changes: A model to understand the amphorae production patterns in the Roman Empire} % Poster title
-\title{New perspective on the study of variations in Amphorae production during the Roman Empire} % Poster title
+%\title{New perspective on the study of variations in Amphorae production during the Roman Empire} % Poster title
+\title{Identifying the social learning dynamics behind large-scale pottery-making. The amphoric production during the Roman Empire.}
+
 
 \author{Maria Coto, Simon Carrignon and Xavier Rubio-Campillo} % Author(s)
 
@@ -155,27 +157,32 @@ Figure~\ref{fig:pca} suggests that amphorae from closer workshops tend to be mor
 \begin{column}{1.025\onecolwid} %first subcolumn left
 %on the left
 
-{\textbf{Model \& Experiment}}\\
+{\textbf{Model }}\\
 \justify
-In this part we propose a model based on the Wright-Fisher's random drift model to see what condition can lead to the variation revealed by the PCA. 
-%In this model workshops produce a certain number of amphorae \& can: (1) change their production technics following a random inovation procedure (vertical transmission) or (2) copy the production techniques of another workshop.  
-An algorithmic description of it is given in the Fig~\ref{fig:mod}~(a).  %where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique (\emph{ie} the vertical tramsission) or to copy the one used by another workshop (\emph{the horizontal transmission}). 
+We propose a model based on the Wright-Fisher's random drift model to test the impact of horizontal vs vertical transmission (HT vs VT) on the variation in production between workshops.  %and to give an idea on which conditions can explain the variation revealed by the PCA. 
+
+A set $Pop$ of $N$ workshops sharing the same initial production technics $P^{0}$ are positioned along a line at an increasing distance (Fig~\ref{fig:mod},~left). %In this model workshops produce a certain number of amphorae \& can: (1) change their production technics following a random inovation procedure (vertical transmission) or (2) copy the production techniques of another workshop.
+The algorithm is given in the Fig~\ref{fig:mod}~(right).  
+%where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique (\emph{ie} the vertical tramsission) or to copy the one used by another workshop (\emph{the horizontal transmission}). 
 
 	\begin{figure}
 \begin{columns}
-    \begin{column}{.5\textwidth}
+    \begin{column}{.4\textwidth}
 	    \centering
 	\resizebox{\textwidth}{!}{
 	    \input{images/schemaTL.tikz}
 }
-	    \label{fig:mod}
     \end{column}
     \begin{column}{.6\textwidth}
 	\begin{algorithmic}
 	    \footnotesize
-	    \State Model:
+	    \State Initialization:
+	    \For{$i \in Pop$}
+	    \State $P^{i} = P^{0}$
+	    \EndFor
+	    \State Simulation:
 	    \Loop{$~step \in TimeSteps$}
-	    \For{$WS_i \in Pop$}
+	    \For{$i \in Pop$}
 	    \State $AmphoraProduction(P^{i})$
 	    \If{$ (step \mod 100) = 0$}	
 	    \State $P^{i}=Innovation(P^{i})$ 	\Comment{VT}
@@ -189,11 +196,11 @@ An algorithmic description of it is given in the Fig~\ref{fig:mod}~(a).  %where 
 
 \singlespace
 	    \caption{Schema (left) and pseudo-code (right) of the model }
+	    \label{fig:mod}
 	\end{figure}
 
 %{\textbf{Horizontal Transmission}}\\
 
-To test the impact of horizontal vs vertical transmission (HT vs VT) on the variation in production between the workshops, we simplify the problem by focusing on the variation of only one trait. To mesure the impact of HT we introduce a bias toward the closest neighbour : workshops farer to $WS_0$ have lesser chance to make a cultural copy.
 
 
 
@@ -204,27 +211,31 @@ To test the impact of horizontal vs vertical transmission (HT vs VT) on the vari
 \begin{column}{1.025\onecolwid} %first subcolumn right
 \justify
 
-{\textbf{Result}}\\
-\justify
-If the probability of horizontal transfer of knowledge between workshop is high the variation between the production is low. If the probability of cultural transfer is low, the variability is high, till it reaches its maximum where no horizontal transfer is allowed.
+{\textbf{Experiment \& Result}}\\
+We simplify the problem by focusing on the variation of only one trait. To measure the influence of HT and spatial distance we bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$.
+For each level of bias we run $100$ simulations with 4 workshops and we look how the trait vary between each workshop at the end.\vspace{-.7cm}
+
 
     \begin{figure}[h!]
     \centering
 \singlespace
-	\caption{Evolution of the variation of the mean of the observed measure between the workshops for different Horizontal Transmission penalities}
+\caption{Inter-workshop variation of the trait after $10\,000$ timstep}\vspace{-1.6cm}
+	
 	%\begin{tabular}{m{.3\textwidth}m{.3\textwidth}m{.3\textwidth}}
-    \begin{tabular}{ccc}
-	     $f(d)=d$ & $f(d)=d^3$ & No Copy\\
-	    
-	    \includegraphics[height=.3\textwidth]{images/lineC.png}
-	    &
-	    \includegraphics[height=.3\textwidth]{images/cubeC.png}
-	    &
-	    \includegraphics[height=.3\textwidth]{images/lineNC.png}\\
-	\end{tabular}
+%    \begin{tabular}{ccc}
+%	     $f(d)=d$ & $f(d)=d^3$ & No Copy\\
+%	    
+%	    \includegraphics[height=.3\textwidth]{images/lineC.png}
+%	    &
+%	    \includegraphics[height=.3\textwidth]{images/cubeC.png}
+%	    &
+%	    \includegraphics[height=.3\textwidth]{images/lineNC.png}\\
+%	\end{tabular}
+	\includegraphics[width=0.5\linewidth]{images/interworkshopvar.pdf}
 	\label{fig:resmod}
     \end{figure}
 
+If the probability of horizontal transfer of knowledge between workshop is high the variation between the production is low. If the probability of cultural transfer is low, the variability is high, till it reaches its maximum where no horizontal transfer is allowed.
 
     
 \end{column}
@@ -247,7 +258,7 @@ Empirical studies identified a variation on the making techniques processes amon
 
 The combination of this empirical analysis with the theoretical model suggests that horizontal transmission was not the main cultural process in the workshops. This result, combined with the correlation between spatial distance and morphometric distance suggests that vertical transmission is probably the most probable mechanism.
 
-This is yet just a preliminary results as both the empirical and the theoretical analysis need to be improved: each one using the result of the other. 
+This is yet  preliminary results as both empirical and theoretical analysis need to be improved: each one using the result of the other. 
 
 %the first on by collecting more data from other sites to see if the inter-workshop variation is still consistent with isolation by distance ; the second one by bringing closer the model to the case study by make co-variate as variable as in the empirical study and by integrating the observed correlation between the variable.  
  
