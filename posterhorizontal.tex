@@ -40,6 +40,7 @@
 \usepackage{standalone} % to load standalone file (itkz picture for ex)
 \usepackage{array} %finest gestion of tabular
 \usepackage{algorithm,algorithmicx,algpseudocode}
+\usepackage{setspace}
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION 
@@ -95,6 +96,7 @@ We analyzed 413 amphorae (fig.\ref{fig:betica}~(b)) from 4 different workshops l
 (a) & (b)
 \end{tabular}
 
+\singlespace
 \caption{a) More than 80 pottery workshops were distributed along rivers Guadalquivir and Genil. Red circles belong to the workshops analyzed. b) Dressel 20 amphora}
 \label{fig:betica}
 \end{figure}
@@ -135,6 +137,7 @@ Figure~\ref{fig:pca} suggests that amphorae from closer workshops tend to be mor
 
 \begin{figure}
 \includegraphics[width=0.6\linewidth]{images/fig2.png}
+\singlespace
 \caption{First and Second Principal Components First for amphorae measured from 4 different workshops}
 \label{fig:pca}
 \end{figure}
@@ -154,26 +157,29 @@ Figure~\ref{fig:pca} suggests that amphorae from closer workshops tend to be mor
 
 {\textbf{Model \& Experiment}}\\
 \justify
-We propose a model implementing the Wright-Fisher view of Random Drift where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique (\emph{ie} the vertical tramsission) or to copy the one used by another workshop (\emph{the horizontal transmission}). 
+In this part we propose a model based on the Wright-Fisher's random drift model to see what condition can lead to the variation revealed by the PCA. 
+%In this model workshops produce a certain number of amphorae \& can: (1) change their production technics following a random inovation procedure (vertical transmission) or (2) copy the production techniques of another workshop.  
+An algorithmic description of it is given in the Fig~\ref{fig:mod}~(a).  %where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique (\emph{ie} the vertical tramsission) or to copy the one used by another workshop (\emph{the horizontal transmission}). 
+
 	\begin{figure}
 \begin{columns}
-    \begin{column}{.6\textwidth}
+    \begin{column}{.5\textwidth}
 	    \centering
 	\resizebox{\textwidth}{!}{
 	    \input{images/schemaTL.tikz}
 }
 	    \label{fig:mod}
     \end{column}
-    \begin{column}{.4\textwidth}
+    \begin{column}{.6\textwidth}
 	\begin{algorithmic}
-	    \tiny
+	    \footnotesize
 	    \State Model:
 	    \Loop{$~step \in TimeSteps$}
-	    \For{$i \in Pop$}
-	    \State $AmphoraProduction(T^j)$
-	    \If{$ (step mod 100) = 0$}	
-	    \State $Innovation(T^i)$
-	    \State $CulturalTransmission(V)$
+	    \For{$WS_i \in Pop$}
+	    \State $AmphoraProduction(P^{i})$
+	    \If{$ (step \mod 100) = 0$}	
+	    \State $P^{i}=Innovation(P^{i})$ 	\Comment{VT}
+	    \State $P^{i}=RandomCopy(Pop)$		\Comment{HT}
 	    \EndIf
 	    \EndFor
 	    \EndLoop
@@ -181,12 +187,13 @@ We propose a model implementing the Wright-Fisher view of Random Drift where a f
     \end{column}
 \end{columns}
 
+\singlespace
 	    \caption{Schema (left) and pseudo-code (right) of the model }
 	\end{figure}
 
 %{\textbf{Horizontal Transmission}}\\
-\justify
-To test the impact of horizontal transmission on the variation in production between the workshop we simplify the problem by focusin on the study of the variation of only one traits. We also introduce a penalties: workshops farer to $WS_0$ have lesser chance to make a cultural copy ($p=f(d)$ with $d$ the distance to $WS_0$)
+
+To test the impact of horizontal vs vertical transmission (HT vs VT) on the variation in production between the workshops, we simplify the problem by focusing on the variation of only one trait. To mesure the impact of HT we introduce a bias toward the closest neighbour : workshops farer to $WS_0$ have lesser chance to make a cultural copy.
 
 
 
@@ -203,6 +210,7 @@ If the probability of horizontal transfer of knowledge between workshop is high 
 
     \begin{figure}[h!]
     \centering
+\singlespace
 	\caption{Evolution of the variation of the mean of the observed measure between the workshops for different Horizontal Transmission penalities}
 	%\begin{tabular}{m{.3\textwidth}m{.3\textwidth}m{.3\textwidth}}
     \begin{tabular}{ccc}
@@ -237,7 +245,11 @@ If the probability of horizontal transfer of knowledge between workshop is high 
 
 Empirical studies identified a variation on the making techniques processes among pottery workshops. We observe that this variability is affected by the distance: amphorae made in nearby workshops with a minor spacial distance share more similar traits than amphorae made in pottery workshops farther. It suggests that the pottery techniques were learned from master to disciple instead of workers with the same level. 
 
-The theoretical model support those claim as it shows that when introducing the possibility of horizontal transmission between the workshop the diversity of production quickly decrease.
+The combination of this empirical analysis with the theoretical model suggests that horizontal transmission was not the main cultural process in the workshops. This result, combined with the correlation between spatial distance and morphometric distance suggests that vertical transmission is probably the most probable mechanism.
+
+This is yet just a preliminary results as both the empirical and the theoretical analysis need to be improved: each one using the result of the other. 
+
+%the first on by collecting more data from other sites to see if the inter-workshop variation is still consistent with isolation by distance ; the second one by bringing closer the model to the case study by make co-variate as variable as in the empirical study and by integrating the observed correlation between the variable.  
  
 \end{block}
 
