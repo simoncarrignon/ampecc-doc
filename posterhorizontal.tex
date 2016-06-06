@@ -48,7 +48,7 @@
 
 %\title{Exploring the dynamic of cultural changes: A model to understand the amphorae production patterns in the Roman Empire} % Poster title
 %\title{New perspective on the study of variations in Amphorae production during the Roman Empire} % Poster title
-\title{Identifying the social learning dynamics behind large-scale pottery-making. The amphoric production during the Roman Empire.}
+\title{Social learning of pottery-making technique: An Agent Based Model to understand the amphorae production patterns in the Roman Empire}
 
 
 \author{Maria Coto- Sarmiento, Simon Carrignon and Xavier Rubio-Campillo} % Author(s)
@@ -212,15 +212,12 @@ The algorithm is given in the Fig~\ref{fig:mod}~(right).
 \justify
 
 {\textbf{Experiment \& Result}}\\
-We simplify the problem by focusing on the variation of only one trait. To measure the influence of HT and spatial distance we bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$.
+We simplify the problem by focusing on the variation of one trait. To measure the influence of HT \& spatial distance we bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$.
 For each level of bias we run $100$ simulations with 4 workshops and we look how the trait vary between each workshop at the end.\vspace{-.7cm}
 
 
     \begin{figure}[h!]
     \centering
-\singlespace
-\caption{Inter-workshop variation of the trait after $10\,000$ timstep}\vspace{-1.6cm}
-	
 	%\begin{tabular}{m{.3\textwidth}m{.3\textwidth}m{.3\textwidth}}
 %    \begin{tabular}{ccc}
 %	     $f(d)=d$ & $f(d)=d^3$ & No Copy\\
@@ -232,10 +229,13 @@ For each level of bias we run $100$ simulations with 4 workshops and we look how
 %	    \includegraphics[height=.3\textwidth]{images/lineNC.png}\\
 %	\end{tabular}
 	\includegraphics[width=0.5\linewidth]{images/interworkshopvar.pdf}
+\singlespace
+\caption{Inter-workshop variation of the trait after $10\,000$ timestep and for different bias toward distance.}%\vspace{-1.6cm}
+	
 	\label{fig:resmod}
     \end{figure}
 
-If the probability of horizontal transfer of knowledge between workshop is high the variation between the production is low. If the probability of cultural transfer is low, the variability is high, till it reaches its maximum where no horizontal transfer is allowed.
+The variation between the production is high only if there is no HT or if the probability of cultural transfer is strongly biased toward the closest neighbour.
 
     
 \end{column}
