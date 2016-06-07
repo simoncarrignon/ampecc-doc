@@ -20,6 +20,9 @@
 % onecolwid should therefore be (1-(# of columns+1)*sepwid)/# of columns e.g. (1-(4+1)*0.024)/4 = 0.22
 % Set twocolwid to be (2*onecolwid)+sepwid = 0.464
 % Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
+%%%%% XAVI %%%%%%%%%%%%%
+\newcommand{\memo}[2]{\textcolor{#1}{#2}}
+\newcommand{\xavi}[1]{\memo{orange}{#1\\}}
 
 \newlength{\sepwid}
 \newlength{\onecolwid}
@@ -79,16 +82,15 @@
 
 \justify
 
-Material culture variability allows us to interpret the change in the production processes~\cite{lycett}. In particular, we want to identify changes on the amphorae production and whether making techniques processes were vertically or horizontally transmitted. A correlation between variation and spatial distance were observed in this study. In this case, amphorae made in nearby workshops might share more similar traits than amphorae made from farthest workshops, following isolation-by distance~\cite{bjo}. If it exists a strong variation on production techniques between workshops correlated with the distance, the learning would be vertical (from master to disciple). Conversely, the learning would be horizontal (learning done by mobile workers with the same level of knowledge). We propose to combine empirical studies with theoretical computer model to test this hypothesis.
+Material culture variability allows us to interpret the change in the production processes~\cite{lycett}. In particular, we want to identify changes \xavi{change-changes in 2 consecutive lines} on the amphorae production and whether making techniques processes were vertically or horizontally transmitted \xavi{What if you change the order? We are interested on understanding if pottery-making techniques were transmitted through vertical or horizontal social learning. More particularly, this work is exploring this question by analyzing large-scale amphorae production during the Roman Empire}. A correlation between variation and spatial distance were observed in this study \xavi{You can't explain the results in the intro; you should remove this sentence from here.}. In this case, amphorae made in nearby workshops might share more similar traits than amphorae made from farthest workshops, following isolation-by distance~\cite{bjo}. If it exists a strong variation on production techniques between workshops correlated with the distance, the learning would be vertical (from master to disciple)\xavi{This sentence must go before the previous sentence: 1. we want to explore vertical vs horizontal. 2. if vertical is the one in use then there should be some isolation by distance. 3. the way to test this is to see if there is correlation between spatial distance and morphometric variation.}. Conversely, the learning would be horizontal (learning done by mobile workers with the same level of knowledge)\xavi{you don't need this sentence, it's redundant}. In this work we have explored the social learning processes associated with amphorae production through a combination of empirical analysis and theoretical exploration \xavi{you are not testing any hypothesis here, just exploring.}.
 
 \end{block}
 
 
-\begin{block}{Dataset}
+\begin{block}{Materials}
 
 \justify
-We analyzed 413 amphorae (fig.\ref{fig:betica}~(b)) from 4 different workshops located in \emph{Baetica} (fig.\ref{fig:betica}~(a)). Amphorae production in this province was really important and active during 300 years in the Roman Empire. The workshops were selected from different sites of \emph{Baetica} province in order to know if morphometric distance was correlated with spatial distance. A set 90 samples from each workshop were used to create a database. 8 measures focused on the rim were taken from each amphorae sample. 
-
+We analyzed 413 amphorae (fig.\ref{fig:betica}~(b)) from 4 different workshops located in \emph{Baetica} (fig.\ref{fig:betica}~(a)). This province supplied a massive quantity of olive oil to the rest of the Empire from the Ist to the IIIrd centuries, and for this reason a large-scale infrastructure of amphorae production was developed here. The workshops were selected from different sites of \emph{Baetica} province in order to know if morphometric distance was correlated with spatial distance\xavi{you can remove this sentence, you already said that they are from Baetica, and that the aim of the study is to see if variation is correlated with distance. A better phrasing: The same amphoric type (Dressel 20) was produced in several workshops located along the course of the Guadalquivir river}. A sample of 90 amphoreae was chosen for each of the four analysed workshops. Eight different measures were taken for each amphorae, most of them focused on the rim as this was the best preserved component of the artifacts.\xavi{A sample is the entire set of amphorae, not each amphora, so you can't say "90 sample".}
 \begin{figure}
 \begin{tabular}{cc}
 
@@ -99,7 +101,7 @@ We analyzed 413 amphorae (fig.\ref{fig:betica}~(b)) from 4 different workshops l
 \end{tabular}
 
 \singlespace
-\caption{a) More than 80 pottery workshops were distributed along rivers Guadalquivir and Genil. Red circles belong to the workshops analyzed. b) Dressel 20 amphora}
+\caption{a) More than 80 pottery workshops were distributed along the Guadalquivir river and its tributary the Genil. Red circles belong to the workshops analyzed. b) The entire sample is composed of Dressel 20 amphorae}
 \label{fig:betica}
 \end{figure}
 
@@ -117,10 +119,10 @@ We analyzed 413 amphorae (fig.\ref{fig:betica}~(b)) from 4 different workshops l
 \begin{column}{\onecolwid} %first subcolumn left
 
 
-{\textbf{Principal Component Analysis}} 
+{\textbf{Methods}} 
 \justify
 
-PCA was used to explore these metrical observations with the 8 measurement as variables. Results allow us to simplify the analysis by grouping the variance of the dataset. The first two principal components were chosen to see the significant differences among workshops. 
+PCA was used to explore these metrical observations with the 8 measurement as variables\xavi{This sentence is redundant (observations with measurement as variables). Better phrasing: Principal Component Analysis (PCA) allowed us to capture most of the variance of the 8 measurements into 2 variables}. \xavi{You should use an acronym only if you use it a lot. If you just use it 2 times it's better to use the full term}
 
 %\vspace{1cm}
 
@@ -132,7 +134,8 @@ PCA was used to explore these metrical observations with the 8 measurement as va
 
 {\textbf{Results}}\\
 \justify
-Figure~\ref{fig:pca} suggests that amphorae from closer workshops tend to be more similar. Most of the workshops have different signals on PC1 (i.e. Bel\'en, Delicias and Malpica) while Parlamento shows a distinctive pattern on PC2.
+The patterns observed in the first 2 Principal Components suggests that amphorae from closer workshops tend to be more similar (see Figure~\ref{fig:pca}). In particular, the three closest workshops show variation on PC1 (i.e. Bel\'en, Delicias and Malpica) while Parlamento displays a distinctive pattern than the rest of workshops on PC2 values.
+
 
 \end{column}
  % End of the second column
@@ -145,7 +148,7 @@ Figure~\ref{fig:pca} suggests that amphorae from closer workshops tend to be mor
 \begin{figure}
 \includegraphics[width=0.6\linewidth]{images/fig2.png}
 \singlespace
-\caption{First and Second Principal Components for amphorae measured from 4 different workshops}
+\caption{First and Second Principal Components for amphorae measured from the 4 analysed workshops}
 \label{fig:pca}
 \end{figure}
 \end{column}
@@ -160,10 +163,11 @@ Figure~\ref{fig:pca} suggests that amphorae from closer workshops tend to be mor
 %on the left
 {\textbf{Model }}
 \justify
-We propose a model based on classical random drift model \cite{bentley2004randomdriftandculturechange} to test the impact of horizontal vs vertical transmission (HT vs VT) on the variation in production between workshops.  %and to give an idea on which conditions can explain the variation revealed by the PCA. 
+The observed pattern was further explored with a model based on classical random drift~\cite{bentley2004randomdriftandculturechange}. This approach can be used to to test the impact of horizontal vs vertical transmission (HT vs VT) on the variation in production between workshops.  %and to give an idea on which conditions can explain the variation revealed by the PCA. 
 
-A set $Pop$ of $N$ workshops sharing the same initial production technics $P^{0}$ are positioned along a line at increasing distances.% (Fig~\ref{fig:mod},~left). %In this model workshops produce a certain number of amphorae \& can: (1) change their production technics following a random inovation procedure (vertical transmission) or (2) copy the production techniques of another workshop.
- The algorithm is defined as following : %given in the Fig~\ref{fig:mod}~(right).  
+A set $Pop$ of $N$ workshops sharing the same initial production techniques $P^{0}$ are positioned along a line at increasing distances\xavi{Why do you explain just the initialization of the algorithm? Either you explain all of it, or explain the general process and then you show the algorithm.}. This simplification of spatial distance is based on the fact that all workshops are positioned along the same river course.% (Fig~\ref{fig:mod},~left). %In this model workshops produce a certain number of amphorae \& can: (1) change their production technics following a random inovation procedure (vertical transmission) or (2) copy the production techniques of another workshop.
+
+The algorithm is defined as following : %given in the Fig~\ref{fig:mod}~(right).  
 %where a fixed number of workshop produce a fixed amount of amphora during a certain time following a certain techniques. Every 100 time step each workshop have a certain probability to slightly modify their production technique (\emph{ie} the vertical tramsission) or to copy the one used by another workshop (\emph{the horizontal transmission}). 
 \vspace{.7cm}
 
@@ -217,8 +221,8 @@ A set $Pop$ of $N$ workshops sharing the same initial production technics $P^{0}
 \justify
 We simplify the problem by focusing on the variation of one trait. To measure the influence of HT \& spatial distance we bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$.
 For each level of bias we run $100$ simulations with 4 workshops and we look how the trait varies between each workshop at the end.
-
-The fig~\ref{fig:resmod} shows that variation in production is high only if there is no HT or if the transfer is strongly biased toward the closest neighbour.
+\xavi{what if you put the paragraph above before the algorithm?}
+Figure~\ref{fig:resmod} shows that variation in production is high only if there is no HT or if the transfer is strongly biased toward the closest neighbour.
 \vspace{-1cm}
 
     \begin{figure}[h!]
@@ -260,9 +264,10 @@ The fig~\ref{fig:resmod} shows that variation in production is high only if ther
 \begin{block}{Discussion}
 \justify
 
-Empirical studies has identified variation on the making techniques processes among pottery workshops. We observe that this variability is affected by the distance: amphorae made in nearby workshops with a minor spacial distance share more similar traits than amphorae made in pottery workshops farther. It suggests that the pottery techniques were learned from master to disciple instead of workers with the same level. 
+Empirical studies has identified variation on the making techniques processes among pottery workshops. We observe that this variability is affected by the distance: the analysed morphometric traits show that the similarity between amphorae decrease with the spatial distance between the workhops they were produced. It suggests that the intensity of horizontal transmission was low and the process was guided mainly by vertical transmission. A possible interpretation is that ottery techniques were learned from master to disciple, and the disciples remained in the workhop where they were trained.
 
-The combination of this empirical analysis with the theoretical model suggests that horizontal transmission could not be the main cultural process in the workshops. This result, combined with the correlation between spatial distance and morphometric distance suggests that vertical transmission is probably the most probable mechanism.
+
+The combination of this empirical analysis with the theoretical model suggests that horizontal transmission could not be the main cultural process in the workshops. This result, combined with the correlation between spatial distance and morphometric distance suggests that vertical transmission is probably the most probable mechanism\xavi{This sentence is repeating the information of the previous paragraph}.
 
 
 %This is still  preliminary results as both empirical and theoretical analysis need to be improved: each one using the result of the other. 
