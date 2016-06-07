@@ -181,15 +181,17 @@ The patterns observed in the first 2 Principal Components suggests that amphorae
 %on the left
 {\textbf{Model }}
 \justify
-The observed pattern was further explored with a model based on classical random drift~\cite{bentley2004randomdriftandculturechange} used to test the impact of horizontal vs vertical transmission (HT vs VT) on the variation in production between workshops.  
-We define a set $Pop$ of $N$ workshops sharing the same initial production techniques $P^{0}$ and positioned along a line at increasing distances. This simplification is possible as all workshops are positioned along the same river course.
-Each workshop continuously produce amphorae that are describe by one trait. To test the influence of HT vs VT, workshops can modify the methods they use to produce this trait by 1) randomly change their own techniques (VT) or 2) copy the one from another workshop (HT). A description of the algorithm is given in the algo~\ref{alg:mod}.   
-%\xavi{Why do you explain just the initialization of the algorithm? Either you explain all of it, or explain the general process and then you show the algorithm.}
-\vspace{-.7cm}
-\begin{columns}
-    \centering
-    \begin{column}{.9\textwidth}
-	\begin{algorithm}[H]
+The observed pattern was further explored with a model based on classical random drift~\cite{bentley2004randomdriftandculturechange}. This approach allow us to test the impact of horizontal vs vertical transmission (HT vs VT) on the variation in production between workshops.  
+We define a set $Pop$ of $N$ workshops sharing the same initial production techniques $P^{0}$ and positioned along a line at increasing distances (all workshops are positioned along the same river course).
+Each workshop produce amphorae and change their production techniques by 1) modifying their own techniques or 2) copying one from another workshop. The algorithm is defined as follow:   
+
+
+\begin{center}
+    \fbox{
+
+	\centering
+	\begin{minipage}{.9\textwidth}
+	%\begin{algorithm}[H]
 	    \begin{algorithmic}
 		\footnotesize
 		\State INITIALIZATION:
@@ -207,24 +209,24 @@ Each workshop continuously produce amphorae that are describe by one trait. To t
 		\EndFor
 		\EndLoop
 	    \end{algorithmic}
-	    \caption{Model }
-	    \label{alg:mod}
-	\end{algorithm}
-    \end{column}
-\end{columns}
+	    %\caption{Model }
+	    %\label{alg:mod}
+	    %\line(1,0){\textwidth}
+	%\end{algorithm}
+	\end{minipage}
 
-
-
+    }
+\end{center}
 \end{column}
+%\xavi{Why do you explain just the initialization of the algorithm? Either you explain all of it, or explain the general process and then you show the algorithm.}
 
 \begin{column}{1.025\onecolwid} %first subcolumn right
 {\textbf{Experiment \& Result}}\\
 \justify
-To test the impact of distance we then bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$. Three level of bias are tested, and for each level of bias we run $100$ simulations with 4 workshops and we look how the trait varies between each workshop at the end.
+To test the impact of the distance we bias the random copy toward the closest neighbour. We define $P(T_{AB})$ the probability that $WS_A$ copy $WS_B$ as $\frac{1}{f(d)}$, where $d$ is the distance between $A$ and $B$. Three level of bias are tested. For each level of bias we run $100$ simulations with 4 workshops. Amphorae are describe by on traits and we look how this traits varies between each workshop at the end of the simulation.
 
 Figure~\ref{fig:resmod} shows that variation in production is high only if there is no HT or if the transfer is strongly biased toward the closest neighbour.
 \vspace{-1cm}
-
     \begin{figure}[h!]
     \centering
 	\includegraphics[width=0.5\linewidth]{images/interworkshopvar.pdf}
